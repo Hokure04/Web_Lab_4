@@ -10,5 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PointResponse {
+    private String localTime;
+    private long executionTime;
     private boolean result;
 }

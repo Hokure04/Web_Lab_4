@@ -17,6 +17,8 @@ public class PointDto {
     private Double x;
     private Double y;
     private Double r;
+    private String localTime;
+    private long executionTime;
     private boolean result;
 
     public static List<PointDto> addToPointDtoList(List<Points> pointsList){
@@ -25,6 +27,8 @@ public class PointDto {
                         .x(results.getX())
                         .y(results.getY())
                         .r(results.getR())
+                        .localTime(results.getLocalTime())
+                        .executionTime(results.getExecutionTime())
                         .result(results.isResult())
                         .build())
                 .collect(Collectors.toList());

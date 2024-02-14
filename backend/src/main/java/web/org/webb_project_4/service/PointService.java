@@ -13,6 +13,8 @@ import web.org.webb_project_4.model.Users;
 import web.org.webb_project_4.repository.PointRepository;
 import web.org.webb_project_4.repository.UserRepository;
 
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
@@ -22,6 +24,7 @@ public class PointService {
     private final PointRepository pointRepository;
 
     public PointResponse add(PointRequest request, String username) throws ChangeSetPersister.NotFoundException{
+        long start = System.nanoTime();
         Users user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("user not found"));
 
@@ -29,11 +32,15 @@ public class PointService {
         Double y = request.getY();
         Double r = request.getR();
         boolean isHit = PointUtil.check(x, y, r);
+        String localTime = LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+        long executionTime = System.nanoTime()-start ;
 
         var result = Points.builder()
                 .x(x)
                 .y(y)
                 .r(r)
+                .localTime(localTime)
+                .executionTime(executionTime)
                 .result(isHit)
                 .user(user)
                 .build();
@@ -41,6 +48,8 @@ public class PointService {
         pointRepository.save(result);
         return PointResponse.builder()
                 .result(isHit)
+                .localTime(localTime)
+                .executionTime(executionTime)
                 .build();
     }
 

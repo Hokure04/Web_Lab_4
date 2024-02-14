@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -19,6 +21,8 @@ public class Points {
     private Double x;
     private Double y;
     private Double r;
+    private String localTime;
+    private long executionTime;
     private boolean result;
 
     @ManyToOne

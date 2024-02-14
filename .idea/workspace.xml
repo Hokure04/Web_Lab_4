@@ -4,7 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9665d5f5-6a8d-4c9d-83fa-b92e17f38c8e" name="Changes" comment="" />
+    <list default="true" id="9665d5f5-6a8d-4c9d-83fa-b92e17f38c8e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/web/org/webb_project_4/dto/PointDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/web/org/webb_project_4/dto/PointDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/web/org/webb_project_4/dto/PointResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/web/org/webb_project_4/dto/PointResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/web/org/webb_project_4/model/Points.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/web/org/webb_project_4/model/Points.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/web/org/webb_project_4/service/PointService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/web/org/webb_project_4/service/PointService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/jsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/mainPage.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/MainPage.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/StartPage.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/base.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/LoginForm.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/RegisterForm.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/mainPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/startPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/vite.config.js" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +45,12 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -103,7 +135,7 @@
       <workItem from="1707835224739" duration="610000" />
       <workItem from="1707838977765" duration="2165000" />
       <workItem from="1707853012533" duration="2892000" />
-      <workItem from="1707895923940" duration="8755000" />
+      <workItem from="1707895923940" duration="12759000" />
     </task>
     <servers />
   </component>
