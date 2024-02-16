@@ -38,6 +38,7 @@ export default {
           
         localStorage.setItem('jwt', data.token);
       } catch (error) {
+        alert("Пользователя с таким username и password не существует. Попробуйте зарегестроваться");
         console.error('Error during login:', error);
       }
     }

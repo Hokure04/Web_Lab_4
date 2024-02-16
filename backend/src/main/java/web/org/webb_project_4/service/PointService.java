@@ -59,12 +59,4 @@ public class PointService {
         List<Points> pointsList = pointRepository.findAllByUserId(user.getId());
         return PointDto.addToPointDtoList(pointsList);
     }
-
-    @Transactional
-    public boolean deleteAllByUsername(String username){
-        Users user = userRepository.findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-        pointRepository.deletePointByUserId(user.getId());
-        return true;
-    }
 }

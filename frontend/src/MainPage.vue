@@ -1,9 +1,13 @@
 <template id="template">
   <div class="content">
-    <h1 class="regular-text">ФИО: Каргин Алесандр Максимови</h1>
-    <h1 class="regular-text">Группа: P3206</h1>
-    <h1 class="regular-text">Вариант: 1950</h1>
-  
+    <div id="header">
+      <h1 class="regular-text">ФИО: Каргин Алесандр Максимови</h1>
+      <h1 class="regular-text">Группа: P3206</h1>
+      <h1 class="regular-text">Вариант: 1950</h1>
+    </div>
+    <div>
+      <h2>Ненужный текст</h2>
+    </div>
     <div class="wrapper">
       <div>
         <canvas ref="coordinatesCanvas" id="coordinates-canvas" width="300" height="300"></canvas>
@@ -13,23 +17,23 @@
         <div class="form-row">
           <label class="form-label">X:</label>
           <div class="labels">
-              <button type="button" class="button" @click="selectXValue(-4)">-4</button>
+            <button type="button" class="button" @click="selectXValue(-4)" :class="{ active: xValue === -4 }">-4</button>
               <label>-4</label>
-              <button type="button" class="button" @click="selectXValue(-3)">-3</button>
+              <button type="button" class="button" @click="selectXValue(-3)" :class="{ active: xValue === -3 }">-3</button>
               <label>-3</label>
-              <button type="button" class="button" @click="selectXValue(-2)">-2</button>
+              <button type="button" class="button" @click="selectXValue(-2)" :class="{ active: xValue === -2 }">-2</button>
               <label>-2</label>
-              <button type="button" class="button" @click="selectXValue(-1)">-1</button>
+              <button type="button" class="button" @click="selectXValue(-1)" :class="{ active: xValue === -1 }">-1</button>
               <label>-1</label>
-              <button type="button" class="button" @click="selectXValue(0)">0</button>
+              <button type="button" class="button" @click="selectXValue(0)" :class="{ active: xValue === 0 }">0</button>
               <label>0</label>
-              <button type="button" class="button" @click="selectXValue(1)">1</button>
+              <button type="button" class="button" @click="selectXValue(1)" :class="{ active: xValue === 1 }">1</button>
               <label>1</label>
-              <button type="button" class="button" @click="selectXValue(2)">2</button>
+              <button type="button" class="button" @click="selectXValue(2)" :class="{ active: xValue === 2 }">2</button>
               <label>2</label>
-              <button type="button" class="button" @click="selectXValue(3)">3</button>
+              <button type="button" class="button" @click="selectXValue(3)" :class="{ active: xValue === 3 }">3</button>
               <label>3</label>
-              <button type="button" class="button" @click="selectXValue(4)">4</button>
+              <button type="button" class="button" @click="selectXValue(4)" :class="{ active: xValue === 4 }">4</button>
               <label>4</label>
           </div>
         </div>
@@ -67,6 +71,7 @@
   
     <div>
       <button id="check-button" class="button" @click="sendButton">check</button>
+      <button id="logout-button" class="button" @click="logOut">Log out</button>
     </div>
   
     <div class="table-container">
@@ -76,6 +81,8 @@
           <th>x</th>
           <th>y</th>
           <th>r</th>
+          <th>local time</th>
+          <th>execution time</th>
           <th>result</th>
         </tr>
         </thead>
@@ -91,8 +98,6 @@
         </tbody>
       </table>
     </div>
-    <button id="clear-table-button" class="button clear-table-button" @click="deleteButton">clear</button>
-    <button id="logout-button" class="button" @click="logOut">Log out</button>
   </div>
 </template>
   
@@ -291,6 +296,7 @@ export default {
 
             // Добавление точки на canvas
             this.drawPointOnCanvas(parseFloat(xValue), parseFloat(yValue), pointColor);
+            this.getDataFromServer();
           })
           .catch(error => {
             console.error('Error:', error);
@@ -310,31 +316,6 @@ export default {
       ctx.fillStyle = color;
       ctx.fill();
       ctx.closePath();
-    },
-    deleteButton() {
-      const token = this.token;
-  
-      // Отправка DELETE-запроса на сервер
-      fetch('http://localhost:8080/api/v1/result', {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-      })
-          .then(response => {
-            if (response.status === 403) {
-              localStorage.removeItem('jwt');
-              window.location.href = 'startPage.html';
-            } else if (response.status === 200) {
-              // Очистка данных в таблице
-              const resultsTable = document.getElementById('results-table').getElementsByTagName('tbody')[0];
-              resultsTable.innerHTML = '';
-            }
-        })
-          .catch(error => {
-            console.error('Error:', error);
-          });
     },
   },
 };
@@ -408,12 +389,12 @@ body {
 }
   
 .regular-text {
-  color: #3949ab;
+  color: whitesmoke;
   font-size: 35px;
   font-weight: bold;
   font-family: "Courier New", serif;
 }
-  
+
 /* оболочка для добавления севлева направо */
 .wrapper {
   display: flex;
@@ -468,7 +449,22 @@ body {
   font-weight: bold;
   margin-top: 20px;
 }
+
+#header{
+  background-color: #000720;
+  width: 85%;
+  height: 5%;
+  text-align: center;
+}
+
+h2{
+  visibility: hidden;
+}
   
+.active{
+  background: red;
+}
+
 .table-container {
   margin-top: 15px;
   max-height: 185px; /* Высота контейнера таблицы */

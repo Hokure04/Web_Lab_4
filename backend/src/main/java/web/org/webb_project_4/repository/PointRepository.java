@@ -7,5 +7,4 @@ import java.util.List;
 
 public interface PointRepository extends JpaRepository<Points, Long> {
     List<Points> findAllByUserId(Long userId);
-    void deletePointByUserId(Long userId);
 }

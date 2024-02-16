@@ -38,6 +38,7 @@ export default {
         localStorage.setItem('jwt', data.token);
         window.location.href = 'mainPage.html';
       } catch (error) {
+        alert("Пользователь с таким именем уже существует")
         console.error('Error during registration:', error);
       }
     }

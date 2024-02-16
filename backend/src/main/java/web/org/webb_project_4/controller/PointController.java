@@ -43,13 +43,4 @@ public class PointController {
             return (ResponseEntity<List<PointDto>>) ResponseEntity.notFound();
         }
     }
-
-    @DeleteMapping
-    public ResponseEntity<Boolean> deleteAllByUsername(@RequestHeader("Authorization") String authHeader){
-        try{
-            return ResponseEntity.ok(pointService.deleteAllByUsername(jwtService.extractUsername(jwtService.extractJwtTokenFromHeader(authHeader))));
-        }catch (UsernameNotFoundException e){
-            return (ResponseEntity<Boolean>) ResponseEntity.notFound();
-        }
-    }
 }

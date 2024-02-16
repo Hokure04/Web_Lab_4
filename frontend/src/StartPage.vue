@@ -1,10 +1,15 @@
 <template>
   <div>
     <div class="content">
-      <h1 class="regular-text">ФИО: Каргин Алесандр Максимови</h1>
-      <h1 class="regular-text">Группа: P3206</h1>
-      <h1 class="regular-text">Вариант: 1950</h1>
-  
+      <div id="header">
+        <h1 class="regular-text">ФИО: Каргин Алесандр Максимови</h1>
+        <h1 class="regular-text">Группа: P3206</h1>
+        <h1 class="regular-text">Вариант: 1950</h1>
+      </div>
+      <div>
+        <h2>Ненужный текст</h2>
+      </div>
+
       <div class="wrapper">
         <button @click="setAction('login')">Login</button>
         <button @click="setAction('register')">Register</button>
@@ -111,10 +116,22 @@ button {
 }
 
 .regular-text {
-  color: #3949ab;
+  color: whitesmoke;
   font-size: 35px;
   font-weight: bold;
   font-family: "Courier New", serif;
 }
+
+#header{
+  background-color: #000720;
+  width: 75%;
+  height: 5%;
+  text-align: center;
+}
+
+h2{
+  visibility: hidden;
+}
+
 </style>
   

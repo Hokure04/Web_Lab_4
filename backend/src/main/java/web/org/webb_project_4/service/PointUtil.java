@@ -11,6 +11,9 @@ public class PointUtil {
     private static final double maxR = 4;
 
     public static boolean check(double x, double y, double r){
+        if(r == 0){
+            return false;
+        }
         if(checkData(x, y, r)){
             if(r <= 0) r = r*(-1);
             if(checkIsRectangle(x, y, r) || checkIsCircle(x, y, r) || checkIsTriangle(x, y, r)){
